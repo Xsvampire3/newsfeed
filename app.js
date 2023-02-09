@@ -8,6 +8,15 @@ function showDiv() {
   document.querySelector('#hidden').style.display = "block";
 }
 
+const savedNews = [];
+
+const handleSavedNews = (savedItem) => {
+   
+    savedNews.push(savedItem);
+  console.log(savedNews);
+  alert("News saved")
+}
+
 const getNews = (category = "science") => {
   newsContainer.innerHTML = "";
   fetch(`https://inshorts.deta.dev/news?category=${category}`)
@@ -30,6 +39,12 @@ const getNews = (category = "science") => {
           </div>
           <button id="likeButton">Like</button>
         `;
+        const button = document.createElement("button");
+        button.innerHTML = "Save"
+        button.onclick = function () {
+        handleSavedNews(newsItem)
+    }
+        div.appendChild(button);
         newsContainer.appendChild(div);
       });
     });
@@ -49,8 +64,8 @@ const saveNews = () => {
 };
 
 const loadSavedNews = () => {
-  const savedNews = JSON.parse(localStorage.getItem("savedNews"));
-  console.log("saved news from storage", savedNews)
+  //const savedNews = JSON.parse(localStorage.getItem("savedNews"));
+  //console.log("saved news from storage", savedNews)
   if (!savedNews) {
     return;
   }
@@ -66,7 +81,6 @@ const loadSavedNews = () => {
   });
 };
 
-saveButton.addEventListener("click", saveNews);
 loadSavedButton.addEventListener("click", loadSavedNews);
 loadNewsButton.addEventListener("click", () => {
   getNews(categorySelect.value);
