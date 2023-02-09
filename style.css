@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newsItem {
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: left;
+}
+
+#saveButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#likeButton {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.img{
+  height: 200px;
+  width: 300px;
+}
+
+#box{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#innerbox{
+  display: flex;
+  flex-direction: column;
+}
+
+#loadSavedButton{
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+}
+
+#loadNewsButton{
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+}
+
+#categorySelect{
+  font-size: 20px;
+  padding: 10px;
+}
+
+#header{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
