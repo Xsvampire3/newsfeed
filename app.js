@@ -32,12 +32,12 @@ const getNews = (category = "science") => {
           <div id="box">
           <img src="${newsItem.imageUrl}" class="img"></img>
           <div id="innerbox">
-          <p>${newsItem.content} <a href="${newsItem.readMoreUrl}" style="text-decoration:none">READ MORE</a></p>
+          <p id="nscontent">${newsItem.content} <a href="${newsItem.readMoreUrl}" style="text-decoration:none">READ MORE</a></p>
           <p>Date:- ${newsItem.date}</p>
           <p>Time:- ${newsItem.time}</p>
           </div>
           </div>
-          <button id="likeButton">Like</button>
+       
         `;
         const button = document.createElement("button");
         button.innerHTML = "Save"
@@ -55,7 +55,7 @@ const saveNews = () => {
     (newsItem) => {
       return {
         title: newsItem.querySelector("h2").textContent,
-        content: newsItem.querySelector("p").textContent,
+        content: newsItem.querySelector("#nscontent").textContent,
       };
     }
   );
@@ -75,7 +75,7 @@ const loadSavedNews = () => {
     div.innerHTML = `
     <h2>${newsItem.title}</h2>
     <p>${newsItem.content}</p>
-    <button class="likeButton">Like</button>
+    
     `;
     newsContainer.appendChild(div);
   });
